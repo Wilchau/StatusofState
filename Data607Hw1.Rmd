@@ -1,0 +1,42 @@
+---
+title: "Data 607 Lab 1"
+author: "Wilson Chau"
+date: "2022-09-03"
+output: html_document
+---
+
+[**Overview:**]{.underline}
+
+Politicians has this perception of being repetitive and always leading their conversations to false hope. This data set that I found examines the repetition of words politicians from both Democratic and Republican parties, where one-word contains every one-word phrase that was mentioned in at least 10 speeches and every two- or three-word phrase that was mentioned in at least five speeches. I would like to see which party repeat their words.
+
+```{r}
+Speech <- read.csv("https://raw.githubusercontent.com/Wilchau/StatusofState/main/words.csv")
+
+```
+
+We will take a look at the dataset and see some of the names are unclear or not as associated to the political names.
+
+```{r}
+head(Speech)
+
+```
+
+I focus on changing phrase to Popular phrase, d_speeches to Democrats, r_speeches to Republican, percent_of_d\_speeches to % of D, and percent_of_r\_speeches to % of R to shorten the names and give specific names to the party's column.
+
+You can also embed plots, for example:
+
+```{r}
+colnames(Speech) <- c("Popular Phrase", "Category", "Democrats", "Republican", "Total per category", "% of D", "% of R","chi2val", "pval")
+
+```
+
+I want to check the total sum of counts for repetition of words for Democrats and Republican usage and discover Republicans has more count. Maybe some further exploration of Republican word count may be a good future studies?
+
+```{r}
+sum(Speech$Democrats)
+sum(Speech$Republican)
+```
+
+[**Conclusion**]{.underline}
+
+Based on this simple observation, Republicans seem to have more repeating words in their speech. This can show that they may be more focus on their speeches, Democrats on the other hand can be more focus on discussing more other topics or have different word phrases for specific categories, an example: Instead of repeated "Healthcare" Health specific needs, etc. Further studies should be down to see how these parties used repeated words and see if their outcome has any success.
